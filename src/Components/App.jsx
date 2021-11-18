@@ -3,11 +3,13 @@ import "./App.css";
 import * as api from "../api/solana-minter";
 
 export const App = () => {
-  const [user, setUser] = React.useState("");
+  const [user, setUser] = React.useState(null);
 
   const onHandleConnect = async () => {
     let connected_user = await api.connectToWallet();
     setUser(connected_user);
+    // console.log({connected_user})
+
   };
   const onHandleDisconnect = () => {
     api.disconnectFromWallet();
